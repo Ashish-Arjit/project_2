@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | HealthCare AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="auth-body">
+    <div class="container auth-container">
+        <header>
+            <h1>HealthCare <span class="accent">AI</span></h1>
+            <p>Secure Portal Login</p>
+        </header>
+
+        <main>
+            <!-- Login Form -->
+            <div id="login-card" class="card glass auth-card">
+                <h2>Login to Dashboard</h2>
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" placeholder="example@domain.com">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="••••••••">
+                </div>
+
+                <!-- CAPTCHA Section -->
+                <div class="form-group">
+                    <label>Verification (CAPTCHA)</label>
+                    <div class="captcha-container">
+                        <div id="captcha-code" class="captcha-box">Loading...</div>
+                        <button type="button" id="refresh-captcha" class="refresh-btn"
+                            title="Refresh CAPTCHA">🔄</button>
+                    </div>
+                    <input type="text" id="login-captcha" placeholder="Enter code above">
+                </div>
+                <button id="login-btn" class="primary-btn">Sign In</button>
+                <p class="auth-footer">Don't have an account? <a href="#" id="show-signup">Create one</a></p>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signup-card" class="card glass auth-card hidden">
+                <h2>Create Account</h2>
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" placeholder="user@domain.com or .in">
+                    <small class="policy-note">Policy: Must end with .com or .in</small>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="••••••••">
+                    <small class="policy-note">Policy: 8+ digits, 1 special character</small>
+                </div>
+                <button id="signup-btn" class="primary-btn">Sign Up</button>
+                <p class="auth-footer">Already have an account? <a href="#" id="show-login">Login here</a></p>
+            </div>
+
+            <!-- OTP Verification Form -->
+            <div id="otp-card" class="card glass auth-card hidden">
+                <div class="otp-header">
+                    <h2>Verify OTP</h2>
+                    <p>We've sent a 6-digit code to your email.</p>
+                </div>
+                <div class="form-group">
+                    <label for="otp-input">Enter OTP Code</label>
+                    <input type="text" id="otp-input" placeholder="000000" maxlength="6">
+                </div>
+                <button id="verify-btn" class="primary-btn">Verify & Create Account</button>
+                <p class="auth-footer"><a href="#" id="resend-otp">Didn't receive code?</a></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 HealthCare AI. Secure Authentication System.</p>
+        </footer>
+    </div>
+
+    <!-- Notification Overlay -->
+    <div id="notification" class="notification hidden"></div>
+
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+
+</html>

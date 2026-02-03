@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare AI | Smart Medicine Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <h1>HealthCare <span class="accent">AI</span></h1>
+                <a href="/logout" class="logout-link">Logout</a>
+            </div>
+            <p>Advanced Medicine Recommendation System</p>
+        </header>
+
+        <main>
+            <div class="card glass">
+                <section class="selection-section">
+                    <h2>Select Your Symptoms</h2>
+                    <div class="search-box">
+                        <input type="text" id="symptom-search" placeholder="Search symptoms (e.g. fever, cough)...">
+                    </div>
+                    <div id="symptoms-container" class="symptoms-grid">
+                        <!-- Symptoms checkboxes will be loaded here -->
+                        <div class="loader"></div>
+                    </div>
+                </section>
+
+                <section class="details-section">
+                    <h2>Personal Details</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" value="25" min="0" max="120">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="duration">Duration</label>
+                            <input type="text" id="duration" placeholder="e.g. 3 days, 1 week">
+                        </div>
+                    </div>
+
+                    <div id="female-options" class="form-grid hidden">
+                        <div class="form-group">
+                            <label for="pregnancy">Are you pregnant?</label>
+                            <select id="pregnancy">
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="feeding">Are you breastfeeding?</label>
+                            <select id="feeding">
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="get-recommendation" class="primary-btn">Analyze & Recommend</button>
+                </section>
+            </div>
+
+            <div id="result-card" class="card glass hidden">
+                <h2>Recommendation Highlights</h2>
+                <div id="recommendation-output" class="output-content">
+                    <!-- Results will be displayed here -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 HealthCare AI. For informational purposes only. Consult a doctor for medical advice.</p>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
